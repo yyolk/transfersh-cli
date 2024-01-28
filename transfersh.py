@@ -5,8 +5,8 @@
 import os
 import sys
 
-import requests
 import click
+import requests
 import pyperclip
 
 from tqdm import tqdm
