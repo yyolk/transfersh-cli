@@ -3,6 +3,8 @@
 
 # Libraries
 import os
+import sys
+
 import requests
 import click
 import pyperclip
@@ -55,6 +57,8 @@ def transfersh_cli(filename, max_days, max_downloads):
                 download_url = r.text
     except Exception:
         click.echo("Something has failed. The file could not be uploaded.")
+        # Exit, don't continue if the upload failed.
+        sys.exit(1)
 
     # Shows route to download
     click.echo(f"Download from here: {download_url}")
