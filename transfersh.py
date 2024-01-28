@@ -58,9 +58,13 @@ def transfersh_cli(filename, max_days, max_downloads):
 
     # Shows route to download
     click.echo(f"Download from here: {download_url}")
-    click.echo(f"It has also been copied to the clipboard!")
-    # Copy route to clipboard
-    pyperclip.copy(download_url)
+    try:
+        # Copy route to clipboard
+        pyperclip.copy(download_url)
+        click.echo(f"It has also been copied to the clipboard!")
+    except pyperclip.PyperclipException:
+        # Until there's an option to be explicit to not copy to the clipboard.
+        pass
 
 
 if __name__ == "__main__":
